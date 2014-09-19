@@ -7,7 +7,7 @@ This code is licenced under GNU GPL 3.0. For more information see http://www.gnu
 
 Explanation
 =============
-1) blProto Folder includes the c# solution of the application
+1) blProto Folder includes the c# solution of the application\n
 2) Group Documents Includes all the documents produced by the team
 3) Metadata Collector - An application Developed to collect metadata from the cloud
 4) Testing - Testing Class including unit tests
