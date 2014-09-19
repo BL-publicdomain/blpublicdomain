@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "Stopword List";
+}
+
+<style>
+    
+</style>
+
+<script>
+    var TRange = null;
+
+    function findString(str) {
+        if (parseInt(navigator.appVersion) < 4) return;
+        var strFound;
+        if (window.find) {
+
+            // CODE FOR BROWSERS THAT SUPPORT window.find
+
+            strFound = self.find(str);
+            if (!strFound) {
+                strFound = self.find(str, 0, 1);
+                while (self.find(str, 0, 1)) continue;
+            }
+        }
+        else if (navigator.appName.indexOf("Microsoft") != -1) {
+
+            // EXPLORER-SPECIFIC CODE
+
+            if (TRange != null) {
+                TRange.collapse(false);
+                strFound = TRange.findText(str);
+                if (strFound) TRange.select();
+            }
+            if (TRange == null || strFound == 0) {
+                TRange = self.document.body.createTextRange();
+                strFound = TRange.findText(str);
+                if (strFound) TRange.select();
+            }
+        }
+        else if (navigator.appName == "Opera") {
+            alert("Opera browsers not supported, sorry...")
+            return;
+        }
+        if (!strFound) alert("String '" + str + "' not found!")
+        return;
+
+        $('#scroll').bind('mousewheel', function (e) {
+
+            $(this).scrollTop($(this).scrollTop() - e.originalEvent.wheelDeltaY);
+
+            //prevent page fom scrolling
+            return false;
+        });
+    }
+</script>
+
+<style>
+
+    body {
+        top: 100px;
+        line-height: 160%;
+        overflow-x: hidden; /*<---*/
+        overflow-y: scroll; /*<---*/
+    }
+
+
+    #contents {
+        top: 30%;
+        width: 350px;
+        height: 275px;
+        color: #313a71;
+        line-height: 1.5em;
+        overflow-y: scroll;
+        padding-top: 5px;
+        padding-bottom: 5em;
+        position: relative; /* <-- */
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        box-shadow: 1px 1px 4px #888888;
+        border-radius: 2px;
+    }
+
+</style>
+
+<h3>Stopword List</h3>
+
+
+@*<div class="container-background">
+    <p>Here is a list of stopwords used for the OCR full text search. Stop words are a set of words which have been excluded from search results which are considered "function words" such as "the", "in", "to", etc. This list has been taken from <a href="http://voyant-tools.org/">Voyant Tools</a>.</p>
+    <form action="javascript:void();" onsubmit="if(this.t1.value!='')parent.findString(this.t1.value);return(false);">
+        <input type="text" id="t1" name="t1" placeholder="Enter text to search list" size="20">
+        <input type="submit" name="b1" value="Search">
+    </form>
+
+    <div id="stopWordList">
+        @foreach (var item in ViewBag.stopList)
+        {
+            @item <br />
+        }
+    </div>
+
+
+</div>*@
+<div class="container-background">
+    <p>Here is a list of stopwords used for the OCR full text search. Stop words are a set of words which have been excluded from search results which are considered "function words" such as "the", "in", "to", etc. This list has been taken from <a href="http://voyant-tools.org/">Voyant Tools</a>.</p>
+
+    <center>
+        <form action="javascript:void();" onsubmit="if(this.t1.value!='')parent.findString(this.t1.value);return(false);">
+            <input type="text" id="t1" name="t1" placeholder="Enter text to search list" size="100">
+            <input type="submit" name="b1" value="Search">
+        </form>
+        <p><i>Pressing "Search"/Return more than once will search through the list for more instances of your search. (e.g. <b>the</b>, ano<b>the</b>r, etc.)</i></p>
+        <p/>
+        <div id="contents">
+
+            @foreach (var item in ViewBag.stopList)
+            {
+                @item <br />
+            }
+
+        </div>
+    </center>
+
+</div>

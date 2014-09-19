@@ -1,0 +1,92 @@
+﻿
+
+<h3>@ViewBag.title</h3>
+
+<script type="text/javascript" src="@Url.Content("../Scripts/dist/jszip.js")"></script>
+<script type="text/javascript" src="@Url.Content("../Scripts/dist/FileSaver.js")"></script>
+<script type="text/javascript" src="@Url.Content("../Scripts/jquery-1.10.2.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("../Scripts/FileDL.js")"></script>
+
+<style>
+    #ocr-preview {
+        height: 175px;
+        overflow-y: scroll;
+        background-color: rgba(241, 238, 238, 0.5);
+        padding: 3px;
+        box-shadow: 1px 1px 2px #888888;
+        border-radius: 2px;
+    }
+</style>
+
+<div class="container-background">
+    <script>
+        function goBack() {
+            window.history.back()
+        }
+    </script>
+
+    <p><button onclick="goBack()" class="btn btn-default">Go Back</button></p>
+    <table>
+        <tr>
+            <td>
+                <a href="@Url.Action("ItemImage", "ItemPageImage", new { title = ViewBag.title, image = ViewBag.image })"><img src="@ViewBag.image" width="150" style="padding: 5px;"/></a>
+            </td>
+            <td>
+                <p/>
+                <b>Title: </b>@ViewBag.title<br />
+                @*<b>Creators and Contributors:</b>
+                @foreach (var item in ViewBag.creators_and_contributors)
+                {
+                    @item
+                }
+                ViewBag.creators_and_contributors<br/>*@
+                <b>Publisher: </b>@ViewBag.Publisher<br />
+                <b>Publisher Location: </b>@ViewBag.place<br />
+                <b>Publication Year: </b>@ViewBag.year<br />
+            </td>
+        </tr>
+    </table>
+    <p/>
+    <p>
+        <a class="btn btn-primary" href="@Url.Action("Download", "AzureSearchService", new
+                                {
+                                    ocr_url = ViewBag.ocr,
+                                    azure_url = ViewBag.azure_url,
+                                    creators_and_contributors = ViewBag.publisher,
+                                    date = ViewBag.year,
+                                    electronicsysnum = ViewBag.electronicsysnum,
+                                    flickr_original_jpeg = ViewBag.image,
+                                    flickr_url = ViewBag.flickr_url,
+                                    fromshelfmark = ViewBag.fromshelfmark,
+                                    height = ViewBag.height,
+                                    idx = ViewBag.idx,
+                                    place = ViewBag.place,
+                                    printsysnum = ViewBag.printsysnum,
+                                    publisher = ViewBag.publisher,
+                                    scannumber = ViewBag.scannumber,
+                                    sizebracket = ViewBag.sizebracket,
+                                    tags = ViewBag.tags,
+                                    title = ViewBag.title,
+                                    vol = ViewBag.vol,
+                                    width = ViewBag.width
+                                })">Download Full .txt</a>
+        
+        
+        <a href="@Url.Action("Index", "StatisticalAnalysis", new { website = @ViewBag.ocr, titleOfBook = @ViewBag.title })" class="btn btn-primary">Statistical Analysis of Text</a>
+        <a href="@Url.Action("InternetShortcut", "ItemPage", new { url = Request.Url.AbsoluteUri, printsysnum = ViewBag.printsysnum, date = ViewBag.year })" class="btn btn-primary">Download Item Link</a>
+    </p>
+    <p/>
+    <p/>
+
+    <hr style="border-color: gray;"/>
+
+    <b>OCR Preview</b> <i>(first 300 words from OCR text - download to view whole text)</i><p />
+    <div id="ocr-preview">
+        <p>@ViewBag.ocrPreview...</p>
+    </div>
+
+
+    <hr style="border-color:gray;"/>
+
+    <p style="font-size: 11px">All collections available through the British Library Big Data Experiment are available for unrestricted use and reuse under a <a href="http://www.bl.uk/aboutus/terms/copyright/index.html">Public Domain Mark</a>.</p>
+</div>

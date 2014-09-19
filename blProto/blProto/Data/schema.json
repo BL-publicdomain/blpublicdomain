@@ -1,0 +1,24 @@
+{
+  "fields": [
+{ "name": "azure_url", "type": "Edm.String", "searchable" : false}, 
+{ "name": "creators_and_contributors", "type": "Collection(Edm.String)"}, 
+{ "name": "date", "type": "Edm.Int32"},
+{ "name": "electronicsysnum", "type": "Edm.Int32"},
+{ "name": "flickr_original_jpeg", "type": "Edm.String","searchable" : false},
+{ "name": "flickr_url", "type": "Edm.String","searchable" : false}, 
+{ "name": "fromshelfmark", "type": "Edm.String", "searchable" : false},
+{ "name": "height", "type": "Edm.Int32"},
+{ "name": "idx", "type": "Edm.Int32"},
+{ "name": "ocrtext", "type": "Edm.String"},
+{ "name": "place", "type": "Edm.String"}, 
+{ "name": "printsysnum", "type": "Edm.Int32"},
+{ "name": "publisher", "type": "Edm.String"},
+{ "name": "scannumber", "type": "Edm.Int32"},
+{ "name": "sizebracket", "type": "Edm.String", "searchable" : false}, 
+{ "name": "tags", "type": "Collection(Edm.String)"},
+{ "name": "title", "type": "Edm.String", "suggestions": true },
+{ "name": "vol", "type": "Edm.Int32"},
+{ "name": "width", "type": "Edm.Int32"},
+{ "name": "key", "type": "Edm.String", "searchable" : false}
+  ]
+}

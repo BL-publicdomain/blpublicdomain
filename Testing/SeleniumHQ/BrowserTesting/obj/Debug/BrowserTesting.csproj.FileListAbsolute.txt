@@ -1,0 +1,12 @@
+c:\users\stelios\documents\visual studio 2013\Projects\BrowserTesting\BrowserTesting\bin\Debug\BrowserTesting.exe.config
+c:\users\stelios\documents\visual studio 2013\Projects\BrowserTesting\BrowserTesting\bin\Debug\BrowserTesting.exe
+c:\users\stelios\documents\visual studio 2013\Projects\BrowserTesting\BrowserTesting\bin\Debug\BrowserTesting.pdb
+c:\users\stelios\documents\visual studio 2013\Projects\BrowserTesting\BrowserTesting\bin\Debug\WebDriver.dll
+c:\users\stelios\documents\visual studio 2013\Projects\BrowserTesting\BrowserTesting\bin\Debug\WebDriver.xml
+c:\users\stelios\documents\visual studio 2013\Projects\BrowserTesting\BrowserTesting\obj\Debug\BrowserTesting.exe
+c:\users\stelios\documents\visual studio 2013\Projects\BrowserTesting\BrowserTesting\obj\Debug\BrowserTesting.pdb
+c:\users\stelios\documents\visual studio 2013\Projects\BrowserTesting\BrowserTesting\bin\Debug\nunit.framework.dll
+c:\users\stelios\documents\visual studio 2013\Projects\BrowserTesting\BrowserTesting\bin\Debug\WebDriver.Support.dll
+c:\users\stelios\documents\visual studio 2013\Projects\BrowserTesting\BrowserTesting\bin\Debug\nunit.framework.xml
+c:\users\stelios\documents\visual studio 2013\Projects\BrowserTesting\BrowserTesting\bin\Debug\WebDriver.Support.xml
+C:\Users\Stelios\Documents\Visual Studio 2013\Projects\BrowserTesting\BrowserTesting\obj\Debug\BrowserTesting.csprojResolveAssemblyReference.cache

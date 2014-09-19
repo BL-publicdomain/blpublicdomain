@@ -1,0 +1,26 @@
+{
+  "fields": [
+ 
+	{ "name": "title", "type": "Edm.String", "suggestions": true },
+	{ "name": "flickr_original_jpeg", "type": "Edm.String"},
+	{ "name": "idx", "type": "Edm.Int32"},
+	{ "name": "printsysnum", "type": "Edm.Int32"},
+	{ "name": "vol", "type": "Edm.Int32"},
+	{ "name": "ocrtext", "type": "Edm.String"},	
+	{ "name": "place", "type": "Edm.String"},	
+	{ "name": "width", "type": "Edm.Int32"},
+	{ "name": "scannumber", "type": "Edm.Int32"},
+	{ "name": "height", "type": "Edm.Int32"},
+	{ "name": "sizebracket", "type": "Edm.String"},
+	{ "name": "electronicsysnum", "type": "Edm.Int32"},
+	{ "name": "date", "type": "Edm.Int32"},
+	{ "name": "fromshelfmark", "type": "Edm.String"},
+	{ "name": "azure_url", "type": "Edm.String"},
+	{ "name": "tags", "type": "Collection(Edm.String)"},
+	{ "name": "flickr_url", "type": "Edm.String"}
+	
+  ]
+}
+
+
+ 

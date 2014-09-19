@@ -1,0 +1,129 @@
+﻿body {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    background: url('/Content/imgs/bl-bg-extended2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+#keyword-search {
+    z-index:100;
+    position: relative;
+    top: 50%;
+    left: 10%;
+    margin-top: -40px;
+    margin-right: 20%;
+    padding-top: 55px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 40px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 6px #888888;
+}
+
+#home-logo {
+    z-index: -1;
+    position: relative;
+    left: 15%;
+    top: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#advanced-search-tab {
+    position: absolute;
+    left: 60%;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    box-shadow: 3px 3px 6px #888888;
+    border-color: white;
+    border-radius: 5px;
+    background-color: rgba(224, 224, 224, 0.9);
+}
+
+#AdvSearchFrame {
+    position: relative;
+    margin-left: 20%;
+    padding: 10px;
+    background-color: rgba(224, 224, 224, 0.5);
+    border-radius: 5px;
+}
+
+#adv-search-logo {
+    position: fixed;
+    top: 70px;
+}
+
+#results-list {
+    position: relative;
+    padding: 10px;
+    background-color: rgba(224, 224, 224, 0.5);
+    border-radius: 5px;
+}
+
+/*#footerWrapper {
+    width: 100%;
+    bottom: 0;
+    background-color: black;
+    position: fixed;
+}*/
+
+span.glyphicon-question-sign {
+    cursor: help;
+}
+
+#downloadfile {
+    cursor: pointer;
+}
+
+.container-background {
+    background-color: rgba(224, 224, 224, 0.7);
+    padding: 10px;
+    box-shadow: 3px 3px 6px #888888;
+    border-radius: 5px;
+}
+
+header {
+    position: fixed;
+    z-index: 300;
+}

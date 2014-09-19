@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.title = ViewBag.itemTitle;
+}
+<h3>@ViewBag.itemTitle</h3>
+
+<div class="container-background">
+    <script>
+        function goBack() {
+            if (window.history.back() != null) {
+                window.history.back();
+            } else {
+                window.close();
+            }
+        }
+
+
+    </script>
+
+    <p><button onclick="goBack()" class="btn btn-default">Go Back</button></p>
+
+
+    <img src="@ViewBag.image"  style="width: 90%;"/>
+</div>

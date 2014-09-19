@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "Statistical Analysis";
+}
+
+<h3>List of 20 Most Frequent Words</h3>
+<div class="container-background">
+    <script>
+        function goBack() {
+            window.history.back()
+        }
+  
+    </script>
+
+    <p><button onclick="goBack()" class="btn btn-default">Go Back</button></p>
+
+    <h4>@ViewBag.titleOfBook</h4>
+    <p>This list displays the most frequently occurring words within the full text, excluding stopwords (to find the stopwords that were excluded from the search, follow <a href="~/StopWordList/StopWordList" target="_blank">this link.)</a>.</p>
+    
+<table border="1" style="width:300px">
+    <tr>
+        <td><b>Word</b></td>
+        <td><b>Frequency</b></td>
+    </tr>
+    @foreach (var item in ((List<string>)ViewBag.MostFrequentWords).Zip((List<int>)ViewBag.FrequencyOfMostFrequentWords, (word, frequency) => new { word, frequency }))
+    {
+
+
+        <tr>
+            <td>@item.word</td>
+
+
+
+            <td>@item.frequency</td>
+        </tr>
+
+
+    }
+</table>
+    
+   <h3> Get the frequency of a word</h3>
+
+    @using (Html.BeginForm("Index", "StatisticalAnalysis", new { website = @ViewBag.website, titleOfBook =  ViewBag.titleOfBook }))
+{
+        <div id="search">
+            <div id="searchbtn">
+                <input id="Search" type="submit" value="Get Frequency" />@Html.TextBox("txtSearch")
+            </div>
+            
+        </div>
+}
+    @if (ViewBag.initialState == 0)
+    {
+        
+    }
+    else
+    {
+        
+            <h6><b>@ViewBag.MessageOneWord</b></h6>
+            <h6><b>@ViewBag.WordNotFound</b></h6>
+            <h6><b>@ViewBag.wordFound</b></h6>
+    }
+
+
+
+
+    <h3> Get the Biagram </h3>
+
+    @using (Html.BeginForm("Index", "StatisticalAnalysis", new { website = @ViewBag.website, titleOfBook = ViewBag.titleOfBook }))
+    {
+        <div id="search">
+            <div id="searchbtn">
+                <input id="Search" type="submit" value="Get Frequency" />@Html.TextBox("txtSearchBiagram")
+            </div>
+
+        </div>
+    }
+    @if (ViewBag.initialStateBiagram == 0)
+    {
+
+    }
+    else
+    {
+        <h6><b>@ViewBag.MessageBiagram</b></h6>
+        <h6><b>@ViewBag.WordNotFoundBiagram</b></h6>
+        <h6><b>@ViewBag.wordFoundBiagram</b></h6>
+    }
+   
+
+
+
+    <h3> Get the Triagram </h3>
+
+    @using (Html.BeginForm("Index", "StatisticalAnalysis", new { website = @ViewBag.website, titleOfBook = ViewBag.titleOfBook }))
+    {
+        <div id="search">
+            <div id="searchbtn">
+                <input id="Search" type="submit" value="Get Frequency" />@Html.TextBox("txtSearchTriagram")
+            </div>
+
+        </div>
+    }
+    @if (ViewBag.initialStateTriagram == 0)
+    {
+
+    }
+    else
+    {
+        
+        <h6><b>@ViewBag.MessageTriagram</b></h6>
+        <h6><b>@ViewBag.WordNotFoundTriagram</b></h6>
+        <h6><b>@ViewBag.wordFoundTriagram</b></h6>
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</div>

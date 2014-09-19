@@ -1,0 +1,96 @@
+﻿@{
+
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>British Library Big Data Experiment</title>
+
+</head>
+
+<body style="padding-top: 80px;">
+    <div id="home-logo" style="z-index:5000">
+        <img src="~/Content/imgs/BL_From-the-collections-of.png" width="180" alt="bl logo" />
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        <div class="container-background" id="keyword-search" style="z-index:100">
+                <form method="post">
+                    <fieldset>
+
+<p>
+                        <center>
+                            <input type="text" name="sQuery" placeholder="Title Keyword Search..." size="100" autofocus="autofocus"/>
+                            <span class="glyphicon glyphicon-question-sign" title="Enter a keyword to search across all the fields except ocr"></span>
+                            <input type="submit" value="Search" class="submit btn btn-default" />
+
+                        </center>
+                    </p>
+
+                    
+
+                </fieldset>
+            </form>
+            @*<p />
+            <center><p style="font-size: 11px;"><i>Hover your mouse over the <span class="glyphicon glyphicon-question-sign" title="Helper text will appear!"></span> for more information. </i></p></center>*@
+        </div>
+    }
+
+    @*<div id="keyword-search" style="z-index:100">
+        <form method="post">
+            <fieldset>
+
+            <p><center>
+                <input type="text" name="keyword-search" value="" placeholder="Keyword Search..." size="100" />
+                <input type="submit" value="Submit" class="submit" />
+            </center>
+            </p>
+
+            <center>
+                <input type="radio" name="keyword-radio" value="keyword-title">&nbsp;Title&nbsp;&nbsp;
+                <input type="radio" name="keyword-radio" value="keyword-catalogue" checked>&nbsp;Catalogue
+            </center>
+
+            </fieldset>
+        </form>
+    </div>*@
+
+    <div  id="advanced-search-tab">
+        <a href="/AdvSearch/Index"><b>Advanced Search</b></a>
+    </div>
+
+    <p style="padding-bottom:80px;"></p>
+
+
+    <div class="container-background" id="homepage-info">
+        <h4>Welcome</h4>
+        <p>
+            Welcome to the British Library Big Data Experiment, an experimental service developed in collaboration with the British Library Digital Research Team.
+            <p>Search, query, and download subsets of 17th, 18th and 19th century digitised Public Domain books. <a href="About/AboutPage">[Read more...]</a></p>
+        <p>
+        </p>
+        @*<h4>About the Project</h4>
+        The British Library Big Data Experiment is an experimental service that you can use to search, query, and download a subset of the digital collections held at the British Library. <a href="About/AboutPage">[Read more...]</a>
+
+        
+        <table>
+            <tr>
+                <td style="padding-right: 5px; border-right: solid 1px #5b5757; width: 33%;">
+                    <h4>The Collection</h4>
+                    Search, query, and download subsets of 17th, 18th and 19th century digitised Public Domain books.
+                </td>
+                <td style="width: 33%; padding-left: 7px;">
+                    <h4>About the Project</h4>
+                    The British Library Big Data Experiment is an experimental service that you can use to search, query, and download a subset of the digital collections held at the British Library. <a href="About/AboutPage">[Read more...]</a>
+                </td>
+            </tr>
+        </table>*@
+    </div>
+
+</body>
+</html>

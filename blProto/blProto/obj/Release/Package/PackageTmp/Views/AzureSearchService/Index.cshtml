@@ -1,0 +1,182 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<RazorTesting.Models.BookModel>
+
+@{ 
+    
+    ViewBag.Title = "Search Results";
+
+    int fromResult = ViewBag.fromResult;
+    int toResult = ViewBag.toResult;
+    
+    int resultCount = ViewBag.resultTotal;
+
+    int itemNumber = fromResult; //gives each item a number: used for numbering and indexing
+    string result = " ";
+
+@*
+    @*
+    string titleBook = " ";
+    int titleChar = 0;
+    string result = " ";
+    //int titleChar = (titleBook.ToCharArray()).Length; *@
+}
+
+<h2>Search Results</h2>
+
+<script type="text/javascript" src="@Url.Content("../Scripts/dist/jszip.js")"></script>
+<script type="text/javascript" src="@Url.Content("../Scripts/dist/FileSaver.js")"></script>
+<script type="text/javascript" src="@Url.Content("../Scripts/jquery-1.10.2.min.js")"></script>
+<script type="text/javascript" src="@Url.Content("../Scripts/FileDL.js")"></script>
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+<div class="container-background" id="downloader_application">
+    <script>
+        function goBack() {
+            window.history.back()
+        }
+
+        //$(document).ready(function () {
+        //    $('#selecctall').click(function (event) {  //on click 
+        //        if (this.checked) { // check select status
+        //            $('.checkbox1').each(function () { //loop through each checkbox
+        //                this.checked = true;  //select all checkboxes with class "checkbox1"               
+        //            });
+        //        } else {
+        //            $('.checkbox1').each(function () { //loop through each checkbox
+        //                this.checked = false; //deselect all checkboxes with class "checkbox1"                       
+        //            });
+        //        }
+        //    });
+
+        //});
+
+       
+        //$(document).ready(function () {
+           
+        //});
+
+        //function test() {           
+                       
+        //    if ($('form input[name="check[]"]:checked').size() == 0) {
+
+        //        alert("No checkboxes selected")
+        //    } else {
+        //        var ids = [];
+               
+        //            var prices = [];
+        //            $('input[name="check[]"]:checked').each(function () {
+
+        //                prices.push($(this).attr("value"));
+        //            });
+        //            $.ajax({
+        //                url: "/AzureSearchService/DownloadAll",
+        //                type: "GET",
+        //                data: { coursePrices: prices },
+        //                dataType: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        //                cache: false,
+        //                traditional: true,
+        //                success: function () {
+        //                    alert("ajax request to server succeed");
+        //                }
+        //            });
+               
+
+
+                
+
+
+        //    }
+        //}
+    </script>
+
+    <p><button onclick="goBack()" class="btn btn-default">Go Back</button></p>
+    <form action="#" id="download_form">
+
+        Search results for: <i>@ViewBag.searchQuery</i>. <a href="~/AdvSearch/Index" style="cursor: pointer;">Advanced Search</a><br/>
+        Displaying results @fromResult - @toResult of <b>@ViewBag.resultTotal</b> results.<br/>
+        <hr style="border-color: gray;" />
+
+        @foreach (var item2 in ViewBag.OnePageOfProducts)
+        {
+
+                 <table>
+                <tbody>
+                    <tr>
+                        <td rowspan="3" colspan="1">@itemNumber. </td>
+                        <td rowspan="3" colspan="1" style="padding-left: 5px;"><img id="img_logo" alt="Simple Image" src="@item2.flickr_original_jpeg" width="100" height="75" /></td>
+                        <td rowspan="3" colspan="1">
+                            @*<label>
+                                <input class="checkbox1"  type="checkbox" name="check[]" value="@item2.ocrtext" style="margin-left: 5px; margin-right: 5px;">
+
+                            </label>*@
+                        </td>
+                        <td>
+                            
+                            <!-- Code to cut off title if longer than 150 char -->
+                            @if (((item2.title.ToCharArray()).Length) > 150)
+                            {
+                                int titleLengthToRemove = ((item2.title.ToCharArray()).Length - 150);
+                                result = (item2.title).Remove(150, titleLengthToRemove) + "...";
+                            }
+                            else
+                            {
+                                result = item2.title;
+                            }
+
+                            <b><a href="@Url.Action("ItemPage", "ItemPage", new { height = item2.height, vol = item2.vol, width = item2.width, scannumber = item2.scannumber, sizebracket = item2.sizebracket, tags = item2.tags, printsysnum = item2.printsysnum, idx = item2.idx, fromshelfmark = item2.fromshelfmark, flickr_url = item2.flickr_url, electronicsysnum = item2.electronicsysnum, azure_url = item2.azure_url, title = item2.title, flickr_original_jpeg = item2.flickr_original_jpeg, publisher = item2.publisher, date = item2.date, place = item2.place, ocr_url = item2.ocrtext, creators_and_contributors = item2.creators_and_contributors })">@result</a></b><br />
+                            
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                            <b>Publisher Location:&nbsp;</b><a href="@Url.Action("SearchByLocation","AzureSearchService", new {location = @item2.place})">@item2.place</a><br/>
+                            <b>Publication Year:&nbsp;</b><a href="@Url.Action("SearchByYear", "AzureSearchService", new { year = @item2.date })">@item2.date</a><br/>
+                            <b>Publisher:&nbsp;</b><a href="@Url.Action("SearchByPublisher", "AzureSearchService", new { publisher = @item2.publisher })">@item2.publisher</a><br />
+                            <br/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            
+                            <span class="glyphicon glyphicon-download"></span>&nbsp;<a href="@Url.Action("Download", "AzureSearchService", new
+                                {
+                                    ocr_url = item2.ocrtext,
+                                    azure_url = item2.azure_url,
+                                    creators_and_contributors = item2.creators_and_contributors,
+                                    date = item2.date,
+                                    electronicsysnum = item2.electronicsysnum,
+                                    flickr_original_jpeg = item2.flickr_original_jpeg,
+                                flickr_url = item2.flickr_url, fromshelfmark = item2.fromshelfmark, height = item2.height, idx = item2.idx, place = item2.place, printsysnum = item2.printsysnum, publisher = item2.publisher, scannumber = item2.scannumber, sizebracket = item2.sizebracket, tags = item2.tags, title = item2.title, vol = item2.vol ,width = item2.width})">Download Text</a>
+
+                            &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-file"></span>&nbsp;<a href="@Url.Action("Index", "StatisticalAnalysis", new { website = item2.ocrtext, titleOfBook = item2.title })">Statistical Analysis</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr style="border-color: gray;" />
+
+            itemNumber++;
+        }
+
+        @if (resultCount > 0)
+{
+    
+            <a href="@Url.Action("InternetShortcut", "ItemPage", new { url = Request.Url.AbsoluteUri, printsysnum = @ViewBag.searchQuery, date = "Results" })" class="btn btn-primary">Download Results Link</a>
+
+            
+
+        }
+    </form>
+
+
+</div>
+
+
+
+
+<div class="pagedList" align="right">
+    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { @ViewBag.queryID, page }))
+</div>

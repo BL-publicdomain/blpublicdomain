@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blProto", "blProto\blProto.csproj", "{47AA02B5-0C18-47EC-8F12-75DF1E4764E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{290E59F6-1F8A-4884-939C-03C033446EE2}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\AzureWebAppPublishModule.psm1 = PublishScripts\AzureWebAppPublishModule.psm1
+		PublishScripts\Publish-WebApplication.ps1 = PublishScripts\Publish-WebApplication.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configurations", "Configurations", "{D8A2F63F-AD3E-46D8-BEF5-B35EB6BDCA10}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Configurations\blProto-WAWS-dev.json = PublishScripts\Configurations\blProto-WAWS-dev.json
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 2
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://stefan-ucl.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = blProto\\blProto.csproj
+		SccProjectName1 = blProto
+		SccLocalPath1 = blProto
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47AA02B5-0C18-47EC-8F12-75DF1E4764E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47AA02B5-0C18-47EC-8F12-75DF1E4764E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47AA02B5-0C18-47EC-8F12-75DF1E4764E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47AA02B5-0C18-47EC-8F12-75DF1E4764E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D8A2F63F-AD3E-46D8-BEF5-B35EB6BDCA10} = {290E59F6-1F8A-4884-939C-03C033446EE2}
+	EndGlobalSection
+EndGlobal

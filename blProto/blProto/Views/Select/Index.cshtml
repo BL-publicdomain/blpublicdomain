@@ -1,0 +1,42 @@
+﻿
+
+
+
+
+@using (Html.BeginForm("Index", "Result", FormMethod.Get))
+{
+
+    <fieldset>
+
+        Movie Type
+
+        @*@Html.DropDownList("MovieType")*@
+
+
+        @Html.DropDownList("Types", ViewData["DropDownItems"] as List<SelectListItem>)
+
+        @Html.DropDownList("Types", ViewData["DropDownItems2"] as List<SelectListItem>)
+
+
+
+
+
+
+
+
+
+
+
+
+        <p>
+
+            <input type="submit" value="Submit" />
+
+        </p>
+
+    </fieldset>
+
+} 
+
+
+

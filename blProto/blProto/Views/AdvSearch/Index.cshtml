@@ -1,0 +1,165 @@
+﻿@{
+    ViewBag.Title = "Advanced Search";
+}
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>British Library Big Data Experiment</title>
+</head>
+
+<body>
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="container-background" id="AdvSearchFrame">
+            <h3>Advanced Search</h3>
+                    <p />
+                    <p style="font-size: 11px;"><i>Hover your mouse over the <span class="glyphicon glyphicon-question-sign" title="Helper text will appear!"></span> for more information. </i></p>
+                    <form id="advanced-search" method="post">
+                        <table>
+                            <tr>
+                                <td>
+                                    Title:
+                                    <span class="glyphicon glyphicon-question-sign" title="Free text search of keywords in titles."></span>
+                                    <font color="gray" style="font-style: italic">(Optional)</font><br />
+                                    <input type="text" name="sTitle" size="100" placeholder="Enter a title or keyword..." />
+                                    @*<select id="title-bool" name="titleAuthorBoolean">
+                                            <option value="and">AND</option>
+                                            <option value="or">OR</option>
+                                            <option value="not">NOT</option>
+                                        </select>*@
+                                    <p />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select id="title-bool" name="titleAuthorBoolean">
+                                        <option value="and">AND</option>
+                                        <option value="or">OR</option>
+                                        <option value="not">NOT</option>
+                                    </select>
+                                    Creator/Contributor:
+                                    <span class="glyphicon glyphicon-question-sign" title="Free text search by given name and/or surname."></span>
+                                    <font color="gray" style="font-style: italic">(Optional)</font><br />
+
+                                    <input type="text" name="sAuthor" size="100" placeholder="Enter contributor or creator name..." />
+                                    @*<select id="author-bool" name="authorPublisherBoolean">
+                                            <option value="and">AND</option>
+                                            <option value="or">OR</option>
+                                            <option value="not">NOT</option>
+                                        </select>*@     <p />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @*<center>
+
+                                        </center>*@
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select id="author-bool" name="authorPublisherBoolean">
+                                        <option value="and">AND</option>
+                                        <option value="or">OR</option>
+                                        <option value="not">NOT</option>
+                                    </select>
+                                    Publisher:
+                                    <span class="glyphicon glyphicon-question-sign" title="Free text search by publisher name."></span>
+                                    <font color="gray" style="font-style: italic">(Optional)</font><br />
+                                    <input type="text" name="publisher" size="100" placeholder="Publisher eg. Osborne" /><p />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @*<center>*@
+                                    <select id="publisher-bool" name="publisherLocationBoolean">
+                                        <option value="and">AND</option>
+                                        <option value="or">OR</option>
+                                        <option value="not">NOT</option>
+                                    </select>
+                                    @*</center>*@
+                                    @*</td>
+                                        </tr>
+                                        <tr>
+                                            <td>*@
+                                    Publisher Location:
+                                    <span class="glyphicon glyphicon-question-sign" title="Search by the location of which a work was published."></span>
+                                    <font color="gray" style="font-style: italic">(Optional)</font><br />
+                                    <input type="text" name="pubLocation" size="100" placeholder="Location eg. London..." /><p />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @*<center>*@
+                                    <select id="date-bool" name="locationDateBoolean">
+                                        <option value="and">AND</option>
+                                        <option value="or">OR</option>
+                                        <option value="not">NOT</option>
+                                    </select>
+                                    @*</center>*@
+                                    @*</td>
+                                        </tr>
+                                        <tr>
+                                            <td>*@
+                                    Date Range:
+                                    <span class="glyphicon glyphicon-question-sign" title="Chose the date range of which a work was published."></span>
+                                    <font color="gray" style="font-style: italic">(Optional)</font> <br />
+                                    <input type="text" name="startDate" maxlength="4" placeholder="YYYY" pattern="[0-9]+"/> to <input type="text" name="endDate" maxlength="4" placeholder="YYYY"/><p />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select id="ocr-bool" name="dateOCRBoolean">
+                                        <option value="and">AND</option>
+                                        <option value="or">OR</option>
+                                        <option value="not">NOT</option>
+                                    </select>
+                                    @*</td>
+                                        </tr>
+                                        <tr>
+                                            <td>*@
+                                    OCR Search:
+                                    <span class="glyphicon glyphicon-question-sign" title="Toggle on/off the functionality to search within texts."></span>
+                                    <font color="gray" style="font-style: italic">(Optional)</font><br />
+
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#ocr-off" role="tab" data-toggle="tab">Off</a></li>
+                                        <li><a href="#ocr-on" role="tab" data-toggle="tab">On</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in" id="ocr-on">
+                                            <br />
+                                            <input type="text" name="ocrSearch" placeholder="Type in a keyword" size="100" /><p />
+                                        </div>
+                                        <div class="tab-pane fade in active" id="ocr-off">
+                                            <br />
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <center><input type="submit" name="submit" value="Search" class="submit btn btn-primary" /><p /></center>
+                        <p style="text-align: right"><input type="reset" value="Reset Search" style="background-color: red;" /></p><p />
+
+                    </form>
+
+                </div>
+    }
+
+    <div id="adv-search-logo">
+        <img src="http://38.media.tumblr.com/b3d34b91d1f57c278be3b9552394631f/tumblr_na3n1cxU2b1swuymgo1_1280.png" width="110" alt="bl logo" />
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Results";
+}
+
+<div class="container-background">
+<h2>Search Results</h2>
+
+
+
+
+<div id="results-list">
+<div id="search-results-table">
+@foreach (var item2 in ViewBag.resultsChoice0 as List<RazorTesting.Models.PrintEntity>)
+{
+    <table>
+        <tbody>
+            <tr>
+                <td rowspan="3" colspan="1"><img id="img_logo" alt="Simple Image" src="@item2.FlickrUrl" width="100"  height="75"/></td>
+                
+                <td>
+                   <b><a href="#">&nbsp;&nbsp;&nbsp;@item2.Title</a></b><br />
+                    &nbsp;&nbsp;&nbsp;by @item2.Publisher
+            </td>
+        </tr>
+            
+        <tr>
+            <td>&nbsp;&nbsp;&nbsp;@item2.Place</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;&nbsp;&nbsp;<a>Download</a> &nbsp;  &nbsp;<a>Compare</a> &nbsp;  &nbsp;<a>Statistical Analysis</a>
+            </td>
+            
+        </tr>
+
+    </tbody>
+</table>
+   <hr style="border-color: gray;"/>
+}
+</div>
+</div>
+</div>

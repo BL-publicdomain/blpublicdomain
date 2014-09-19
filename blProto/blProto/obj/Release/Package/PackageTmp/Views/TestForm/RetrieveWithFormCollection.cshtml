@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "RetrieveWithFormCollection";
+}
+
+<h2>Retrieve query string with the FormCollection method</h2>
+
+
+@ViewBag.keyword
+
+
+
+@using (Html.BeginForm())
+{
+    <div>
+        <h4>You have submitted the following keyword search: @ViewData["sQuery"]</h4><br />
+        <h4>Here is the <em>MAGIC</em>, taken from list object: @ViewBag.gold</h4>
+    </div>
+    
+    <br />
+
+    <label for="sQuery">Search query:</label>
+    <input type="text" name="sQuery" />
+    
+    <br />
+    <br />
+
+    <input type="submit" name="submit" />
+}

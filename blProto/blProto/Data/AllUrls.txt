@@ -1,0 +1,2 @@
+  
+http://localhost:3403/AzureSearchService?queryID=boolean%C2%ACand%20%C2%AClocation%C2%ACLondon%20%C2%AC  

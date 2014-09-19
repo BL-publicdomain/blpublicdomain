@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table>
+
+    @foreach (var item2 in ViewBag.resultsChoice0 as List<RazorTesting.Models.PrintEntity>)
+    {
+
+
+        <tr>
+
+            <img id="img_logo" alt="Simple Image" src="@item2.FlickrUrl" width="100px" />
+
+
+        </tr>
+
+        <tr>
+            @item2.Title
+            by @item2.Publisher
+            @item2.Place
+            @item2.FlickrUrl
+        </tr>
+
+        <br />
+    }
+
+</table>
+
+
+
+
+
