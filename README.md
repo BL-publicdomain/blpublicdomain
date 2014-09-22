@@ -1,7 +1,7 @@
 blpublicdomain
 ==============
 
-The repository for British Library Public Domain
+The repository for British Library Big Data Experiment project (see http://blpublicdomain.azurewebsites.net/)
 
 This code is licenced under GNU GPL 3.0. For more information see http://www.gnu.org/licenses/gpl.html
 
